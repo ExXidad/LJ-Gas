@@ -45,6 +45,12 @@ public:
 	Body(const BodyTypes &bodyType, const double &m = 1, const vec2d &r0 = vec2d(0, 0), const vec2d &v0 = vec2d(0, 0));
 
 	void move(const double &dt);
+
+	void addF(const vec2d &dF);
+
+	void inverseXVelocity();
+
+	void inverseYVelocity();
 };
 
 

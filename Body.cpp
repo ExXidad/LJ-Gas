@@ -66,6 +66,21 @@ void Body::setF(const vec2d &mF)
 
 void Body::move(const double &dt)
 {
-	m_v = m_v + m_f * dt;
-	m_r = m_r + m_v * dt;
+	m_v += m_f * dt;
+	m_r += m_v * dt;
+}
+
+void Body::addF(const vec2d &dF)
+{
+	m_f += dF;
+}
+
+void Body::inverseXVelocity()
+{
+	m_v = vec2d(-m_v[0], m_v[1]);
+}
+
+void Body::inverseYVelocity()
+{
+	m_v = vec2d(m_v[0], -m_v[1]);
 }

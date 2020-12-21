@@ -10,25 +10,36 @@
 #include <iostream>
 #include <fstream>
 #include "Body.h"
+#include "BoundingRect.h"
 
 class Solver
 {
 private:
-    std::vector<Body> bodies;
-    double dt;
-//    const double G = 6.674 * pow(10,-11);
-	const double G = 2;
+	BoundingRect *boundingRect;
+	std::vector<Body> bodies;
+	double dt;
+	double sigma, eps;
+	double rCrit;
 
-public:
-	Solver(const double &dt);
+	double P;
 
-    void addBody(Body &body);
-
-    void step();
+private:
+	inline double bodyToBodyDistance(Body &body1, Body &body2);
 
 	void considerTwoBodies(Body &body1, Body &body2);
 
+public:
+	Solver(BoundingRect &boundingRect, const double &dt,const double &sigma, const double &eps, const double &rCrit = 2.5);
+
+	void addBody(const Body &body);
+
+	void step();
+
 	void saveBodyPositions(std::fstream &file);
+
+	void saveBodies(std::fstream &file);
+
+	double computeEnergy();
 };
 
 

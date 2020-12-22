@@ -1,1 +1,15 @@
 As initial velocity is v0=1 with uniformly distributed direction, kT/2 = 2/2 mv0^2 can be obtained. Thus, pdf(v) = 2v/v0^2 exp(-v^2/v0^2) can be obtained (blue curve).
+
+
+Even as full energy is not conserved (because of Euler-Cromer integration method), Maxwell distribution is obtained.
+
+
+
+
+
+
+
+
+
+
+
